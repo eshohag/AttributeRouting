@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace AttributeRouting
@@ -13,11 +9,24 @@ namespace AttributeRouting
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+
+
+            //Newly added for custome route create
+            routes.MapMvcAttributeRoutes();
+
+            //Newly added for UserRoll like Admin & User etc 
+            AreaRegistration.RegisterAllAreas();
+
+
+
+
+
+            ////Default Routing in Applications
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            //);
         }
     }
 }
